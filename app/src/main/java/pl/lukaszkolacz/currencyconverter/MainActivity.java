@@ -24,22 +24,23 @@ public class MainActivity extends AppCompatActivity {
 //                Toast.makeText(MainActivity.this, "USD was clicked!", Toast.LENGTH_SHORT).show();
                 double input = Double.parseDouble(editTextInput.getText().toString());
                 input /= 3.61;
-                textViewResult.setText("Result: " + Double.toString(round(input,2)) + " PLN");
+                textViewResult.setText("Result: " + Double.toString(round(input, 2)) + " PLN");
             }
         });
+
         buttonToPln.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(MainActivity.this, "PLN was clicked!", Toast.LENGTH_SHORT).show();
                 double input = Double.parseDouble(editTextInput.getText().toString());
                 input *= 3.61;
-                textViewResult.setText("Result: " + Double.toString(round(input,2)) + " USD");
+                textViewResult.setText("Result: " + Double.toString(round(input, 2)) + " USD");
 
             }
         });
     }
-    public double round(double input, int dokladnosc)
-    {
-        return Math.round(input*Math.pow(10, dokladnosc))/Math.pow(10, dokladnosc);
+
+    public double round(double numb, int precision) {
+        return Math.round(numb * Math.pow(10, precision)) / Math.pow(10, precision);
     }
 }
