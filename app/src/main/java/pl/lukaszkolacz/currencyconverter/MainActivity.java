@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 //                Toast.makeText(MainActivity.this, "USD was clicked!", Toast.LENGTH_SHORT).show();
                 double input = Double.parseDouble(editTextInput.getText().toString());
                 input /= 3.61;
-                textViewResult.setText("Result: " + Double.toString(round(input, 2)) + " PLN");
+                textViewResult.setText("Result: " + round(input, 2) + " PLN");
             }
         });
 
@@ -34,13 +34,12 @@ public class MainActivity extends AppCompatActivity {
 //                Toast.makeText(MainActivity.this, "PLN was clicked!", Toast.LENGTH_SHORT).show();
                 double input = Double.parseDouble(editTextInput.getText().toString());
                 input *= 3.61;
-                textViewResult.setText("Result: " + Double.toString(round(input, 2)) + " USD");
-
+                textViewResult.setText("Result: " + round(input, 2) + " USD");
             }
         });
     }
 
-    public double round(double numb, int precision) {
-        return Math.round(numb * Math.pow(10, precision)) / Math.pow(10, precision);
+    public String round(double numb, int precision) {
+        return Double.toString(Math.round(numb * Math.pow(10, precision)) / Math.pow(10, precision));
     }
 }
